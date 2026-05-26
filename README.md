@@ -1,8 +1,8 @@
 # Document Intelligence Pipeline
 
-A fully **local** AI system that ingests PDF/text documents, classifies them, extracts structured fields, and provides semantic search — served via a FastAPI REST API with Swagger UI. No cloud APIs. No internet required at runtime.
+ AI system that ingests PDF/text documents, classifies them, extracts structured fields, and provides semantic search served via a FastAPI REST API with Swagger UI. No cloud APIs. No internet required at runtime.
 
----
+
 
 ## Architecture
 
@@ -27,7 +27,7 @@ PDF / TXT files
   api.py            ← FastAPI: /process /search /results /documents
 ```
 
----
+
 
 ## Tech Stack
 
@@ -42,7 +42,7 @@ PDF / TXT files
 
 **Total model footprint: ~287 MB. Runs entirely on CPU.**
 
----
+
 
 ## Installation
 
@@ -53,7 +53,7 @@ python -m spacy download en_core_web_sm
 
 AI models (deberta + bge) are downloaded automatically on first run and cached locally by HuggingFace/SentenceTransformers. All subsequent runs are fully offline.
 
----
+
 
 ## Running the API
 
@@ -61,9 +61,6 @@ AI models (deberta + bge) are downloaded automatically on first run and cached l
 python main.py
 ```
 
-Open Swagger UI: **http://localhost:8000/docs**
-
----
 
 ## Usage
 
@@ -97,7 +94,7 @@ GET /search?q=payments+due+in+January
 GET /search?q=Python+developer+5+years+experience&top_k=3
 ```
 
----
+
 
 ## Output Format (output.json)
 
@@ -127,7 +124,7 @@ GET /search?q=Python+developer+5+years+experience&top_k=3
 }
 ```
 
----
+
 
 ## Classification Logic
 
@@ -137,7 +134,6 @@ Documents are classified using a three-tier strategy:
 2. **Zero-shot NLI** — `deberta-v3-xsmall-zeroshot` for ambiguous documents. No training data needed.
 3. **Confidence gate** — scores below 0.45 → `Unclassifiable`.
 
----
 
 ## API Endpoints
 
@@ -151,7 +147,6 @@ Documents are classified using a three-tier strategy:
 
 Full interactive docs at `http://localhost:8000/docs` (Swagger UI).
 
----
 
 ## Running Tests
 
@@ -161,7 +156,6 @@ pytest tests/ -v
 
 Expected: 36 tests, all passing.
 
----
 
 ## Supported Document Types
 

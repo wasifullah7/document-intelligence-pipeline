@@ -132,7 +132,6 @@ Documents are classified using a three-tier strategy:
 
 1. **Keyword rules** — regex patterns for clear signals (Invoice, Resume, Utility Bill). Fast, zero ML compute.
 2. **Zero-shot NLI** — `deberta-v3-xsmall-zeroshot` for ambiguous documents. No training data needed.
-3. **Confidence gate** — scores below 0.45 → `Unclassifiable`.
 
 
 ## API Endpoints

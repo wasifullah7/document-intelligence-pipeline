@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+chroma_db/
+output.json
+*.zip
+.env
+
+# HuggingFace model cache — too large for git
+.cache/
